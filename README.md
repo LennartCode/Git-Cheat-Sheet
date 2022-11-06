@@ -1,6 +1,6 @@
 # Git Cheat Sheet
 
-This file has some information on how to work with Git and GitHub. The commands have been hand selected and sorted to be as easy to parse as possible.
+This file has information on how to work with Git and GitHub. The commands have been hand selected and sorted to be as easy to parse as possible.
 
 For more information, please refer to the [Git](https://git-scm.com/doc) and [GitHub](https://cli.github.com/manual/index) documentation.
 
@@ -18,7 +18,7 @@ For more information, please refer to the [Git](https://git-scm.com/doc) and [Gi
   - [Commonly used commands](#commonly-used-commands)
   - [Review a GitHub Pull request](#review-a-github-pull-request)
 - [Common Problems](#common-problems)
-  - [Console shows a long list](#console-shows-a-long-list)
+  - [Console shows a long list](#console-shows-a-lengthy-list)
   - [Cannot commit a message](#cannot-commit-a-message)
   - [fatal: not a git repository (or any of the parent directories): .git](#fatal-not-a-git-repository-or-any-of-the-parent-directories-git)
 
@@ -28,7 +28,7 @@ For more information, please refer to the [Git](https://git-scm.com/doc) and [Gi
 
 #### Show branches
 
-```Powershell
+```PowerShell
 git branch
 ```
 
@@ -36,7 +36,7 @@ git branch
 
 #### Show commit history (latest commits)
 
-```Powershell
+```PowerShell
 git log
 git log --oneline
 ```
@@ -46,7 +46,7 @@ git log --oneline
 
 #### Show staged and unstaged files
 
-```Powershell
+```PowerShell
 git status
 ```
 
@@ -54,27 +54,27 @@ git status
 
 #### Adding/removing file to/from next commit
 
-```Powershell
+```PowerShell
 git add <file name>
 git reset <file name>
 ```
 
-#### Commiting
+#### Committing
 
 `-a` adds all unstaged files.
 
-```Powershell
-git commit -m 'descriptive message'
-git commit -a -m 'descriptive message'
+```PowerShell
+git commit -m <descriptive message>
+git commit -a -m <descriptive message>
 ```
 
-- If the `-m` parameter is ommited, use vim to write the commit message. Also see [Common Problems](#cannot-commit-a-message).
+- If the `-m` parameter is omitted, use vim to write the commit message. Also see [Common Problems](#cannot-commit-a-message).
 
 #### Undo a commit
 
-For example because there is a typo in the commit message or files are missing or wrongly added.
+For example, because there is a typo in the commit message or files are missing or wrongly added.
 
-```Powershell
+```PowerShell
 git reset --soft HEAD^
 ```
 
@@ -84,7 +84,7 @@ If something went wrong terribly and they shall not appear again.
 
 Attention! Only to this if you have NOT pushed yet! Else see [rebase](https://git-scm.com/docs/git-rebase).
 
-```Powershell
+```PowerShell
 git reset --hard HEAD~X
 ```
 
@@ -94,7 +94,7 @@ Where X is the amount of commits to delete.
 
 #### Show all branches
 
-```Powershell
+```PowerShell
 git branch
 ```
 
@@ -102,14 +102,14 @@ git branch
 
 The default branch is usually the one, that is worked on, for example 'development'.
 
-```Powershell
+```PowerShell
 git fetch # To get the latest changes
 git branch <new branch name>
 ```
 
 #### Change branch
 
-```Powershell
+```PowerShell
 git checkout <branch name>
 ```
 
@@ -121,19 +121,19 @@ Compare files to older versions of themselves.
 
 #### Diff the current UNstaged files to the latest commit
 
-```Powershell
+```PowerShell
 git diff
 ```
 
 #### Diff the currently staged files to the latest commit
 
-```Powershell
+```PowerShell
 git diff --cached
 ```
 
 #### Diff two selected commits
 
-```Powershell
+```PowerShell
 git diff <commit ID 1> <commit ID 2>
 ```
 
@@ -142,13 +142,13 @@ git diff <commit ID 1> <commit ID 2>
 
 #### Diff a file to a version of itself in the parent commit
 
-```Powershell
+```PowerShell
 git diff HEAD^ <file name>
 ```
 
 ### Merge
 
-Attention! Make sure to merge in the correct direction, for example using the GitHub.com UI. A merge always merges another branch that must be specified into the curretly loaded one.
+Attention! Make sure to merge in the correct direction, for example using the GitHub.com UI. A merge always merges another branch that must be specified into the currently loaded one.
 
 - In the following, branch F (like in feature) will be merged into branch D (like in development).
 
@@ -158,7 +158,7 @@ Consider using GitHub.com to avoid mistakes.
 
 D <- F
 
-```Powershell
+```PowerShell
 git checkout <name of feature branch>
 git merge <name of development branch>
 ```
@@ -169,13 +169,13 @@ git merge <name of development branch>
 
 Download all remote branches without changing the working environment. The working directory (the files you are working on) and the staging area (already added files) are untouched. This command is considered safe and can be run any time.
 
-```Powershell
+```PowerShell
 git fetch
 ```
 
-- Remotely deleted branches i.e. after an accepted merge request will not be deleted locally. To do that (prune them) use
+- Remotely deleted branches i.e., after an accepted merge request will not be deleted locally. To do that (prune them) use
 
-```Powershell
+```PowerShell
 git fetch --prune
 # or
 git remote prune <branch name to delete> # Without fetching
@@ -189,7 +189,7 @@ Download all remote branches and merge the remote copy of the currently selected
 - This command does not allow for verifying the changes and can result in merge conflicts. To avoid this, use `fetch` and `merge` (or `mergetool`) separately.
 - If a branch has been removed remotely (for example due to an accepted merge request), its local copy will not be deleted. To accomplish this, use `--prune`.
 
-```Powershell
+```PowerShell
 git pull
 # or
 git fetch
@@ -200,7 +200,7 @@ git merge # or git mergetool
 
 Upload commits to a remote repository.
 
-```Powershell
+```PowerShell
 git checkout <branch name to push>
 git push
 ```
@@ -209,7 +209,7 @@ git push
 
 #### Set up working environment
 
-```Powershell
+```PowerShell
 # Read settings
 git config --list
 git config --global user.email
@@ -220,11 +220,11 @@ git config --global user.email '55597910+LennartCode@users.noreply.github.com'
 git config --global user.name 'Lennart S'
 ```
 
-- The noreply GitHub email adress can be found in the [GitHub settings](https://github.com/settings/emails) under 'Keep my email adress private'.
+- The noreply GitHub email address can be found in the [GitHub settings](https://github.com/settings/emails) under 'Keep my email address private'.
 
 #### Use VSCode for diffing and resolving merge conflicts
 
-```Powershell
+```PowerShell
 git config --global merge.tool vscode
 git config --global mergetool.vscode.cmd 'code --wait --merge $REMOTE $LOCAL $BASE $MERGED'
 git config --global diff.tool vscode
@@ -239,8 +239,8 @@ Cloning an existing repository:
 
 - `cd` into the folder into which the repository folder should be cloned.
 
-```Powershell
-cd $env:REPOS
+```PowerShell
+cd path/to/repository
 git clone <Repository Clone URL>
 ```
 
@@ -248,8 +248,8 @@ Initialising a local repository:
 
 - cd into the root folder of the project.
 
-```Powershell
-cd $env:REPOS
+```PowerShell
+cd path/to/repository
 git init --branch main
 git add .
 git commit --all --message 'initial commit'
@@ -263,18 +263,18 @@ Use these techniques to work on a project with multiple people.
 ### Branches
 
 - main\
-Contans production ready code
+Contains production ready code
 - development\
 Contains code for the next release. Gets merged into main on release day.
 - feature branches\
-Contain code for a feature that is curretly developed. Will be merged into development up on completion.
+Contain code for a feature that is currently developed. Will be merged into development up on completion.
 
-Each merge requires a pull request, that must be validated and then merged by a different team member.
+Each merge requires a pull request, which must be validated and then merged by a different team member.
 
 ### Commonly used commands
 
-```Powershell
-# Get the latest updates form the team
+```PowerShell
+# Get the latest updates from the team
 git fetch
 # Create new feature branch
 git checkout <name of new feature branch>
@@ -293,7 +293,7 @@ git fetch --prune
 
 ### Review a GitHub Pull request
 
-```Powershell
+```PowerShell
 # Download latest changes
 git fetch
 
@@ -308,13 +308,13 @@ git difftool head^ # or git difftool <file name to diff>
 
 # Go to GitHub and accept/reject the merge request or demand changes, or
 gh pr close {<number> | <url> | <branch>} --delete-branch --comment <explain why the pull request got rejected>
-gh pr review [<number> | <url> | <branch>] { --approve | --request-changes } --body <comment>
+gh pr review [<number> | <url> | <branch>] {--approve | --request-changes} --body <comment>
 gh pr merge {<number> | <url> | <branch>} --delete-branch --body <optional merge message>
 ```
 
 ## Common Problems
 
-### Console shows a long list
+### Console shows a lengthy list
 
 Usually after `git log`
 
