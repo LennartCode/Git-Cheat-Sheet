@@ -253,6 +253,7 @@ cd $env:REPOS
 git init --branch main
 git add .
 git commit --all --message 'initial commit'
+gh repo create <repository name> --include-all-branches {--private | --public} --source .
 ```
 
 ## The Git workflow
