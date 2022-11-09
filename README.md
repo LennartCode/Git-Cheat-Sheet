@@ -272,8 +272,9 @@ Initialising a local repository:
 cd path/to/repository
 git init --branch main
 git add .
-git commit --all --message 'initial commit'
-gh repo create <repository name> --include-all-branches {--private | --public} --source .
+git commit --all --message <commit message>
+gh repo create <repository name> {--private | --public} --source .
+git push --set-upstream origin main
 ```
 
 ## The Git workflow
