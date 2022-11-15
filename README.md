@@ -309,7 +309,9 @@ git commit -m <commit message>
 # Push to the feature branch
 git push
 
-# Create a merge request
+# Create a pull request
+# We advise to use the GitHub UI to create the pull request, as the command can get very long and is vulnearable to mistakes. For the documentation see https://cli.github.com/manual/gh_pr_create
+
 # A team member reviews your code, merges the feature branch into the development branch and deletes the feature branch
 
 # Remove local copy of the feature branch
