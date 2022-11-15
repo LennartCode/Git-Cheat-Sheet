@@ -15,7 +15,7 @@ For more information, please refer to the [Git](https://git-scm.com/doc) and [Gi
   - [Repository Setup](#repository-setup)
 - [The Git workflow](#the-git-workflow)
   - [Branches](#branches)
-  - [Commonly used commands](#commonly-used-commands)
+  - [Creating a feature](#creating-a-feature)
   - [Review a GitHub Pull request](#review-a-github-pull-request)
 - [Common Problems](#common-problems)
   - [Console shows a long list](#console-shows-a-lengthy-list)
@@ -292,7 +292,9 @@ Contain code for a feature that is currently developed. Will be merged into deve
 
 Each merge requires a pull request, which must be validated and then merged by a different team member.
 
-### Commonly used commands
+### Creating a feature
+
+For creating a feature, work on a feature branch and let a team member merge it into the development branch. For more information, see the [git-flow](https://nvie.com/posts/a-successful-git-branching-model/) branching model.
 
 ```PowerShell
 # Get the latest updates from the team
@@ -301,12 +303,14 @@ git fetch
 git checkout <name of new feature branch>
 
 # Work on the feature branch
+git add --all
+git commit -m <commit message>
 
 # Push to the feature branch
 git push
 
 # Create a merge request
-# A team member merges the feature branch into the development branch and deletes the feature branch
+# A team member reviews your code, merges the feature branch into the development branch and deletes the feature branch
 
 # Remove local copy of the feature branch
 git fetch --prune
