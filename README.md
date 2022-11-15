@@ -2,7 +2,7 @@
 
 This file has information on how to work with Git and GitHub. The commands have been hand selected and sorted to be as easy to parse as possible.
 
-For more information, please refer to the [Git](https://git-scm.com/doc) and [GitHub](https://cli.github.com/manual/index) documentation.
+For more information, please refer to the [Git](https://git-scm.com/doc) and [GitHub CLI](https://cli.github.com/manual/index) documentation. For information on the branching model and how to work in a team on the project, see [git-flow](https://nvie.com/posts/a-successful-git-branching-model/).
 
 - [Common Commands](#common-commands)
   - [Overview](#overview)
