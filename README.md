@@ -208,13 +208,13 @@ Download all remote branches without changing the working environment. The worki
 git fetch
 ```
 
-- Remotely deleted branches i.e., after an accepted merge request will not be deleted locally. To do that (prune them) use
+- Remotely deleted branches i.e., after an accepted merge request will not be deleted locally. To do that use
 
 ```PowerShell
-git fetch --prune
-# or
-git remote prune <branch name to delete> # Without fetching
+git branch -d <branch name>
 ```
+
+-It might be necessary to use further attributes depending on your exact scenario, you will be prompted a suggestion in this case.
 
 #### Pull
 
@@ -222,7 +222,6 @@ Download all remote branches and merge the remote copy of the currently selected
 
 - `pull` is a combination of `fetch` and `merge`, where the remote branch is merged into the local one.
 - This command does not allow for verifying the changes and can result in merge conflicts. To avoid this, use `fetch` and `merge` (or `mergetool`) separately.
-- If a branch has been removed remotely (for example due to an accepted merge request), its local copy will not be deleted. To accomplish this, use `--prune`.
 
 ```PowerShell
 git pull
@@ -323,6 +322,7 @@ git commit -m <commit message>
 
 # Push to the feature branch
 git push
+# You might be prompted with a suggestion for further arguments to push to the remote repository.
 
 # Create a pull request
 # We advise to use the GitHub UI to create the pull request, as the command can get very long and is vulnearable to mistakes. For the documentation see https://cli.github.com/manual/gh_pr_create
@@ -330,7 +330,7 @@ git push
 # A team member reviews your code, merges the feature branch into the development branch and deletes the feature branch
 
 # Remove local copy of the feature branch
-git fetch --prune
+git branch -d <feature branch name>
 ```
 
 ### Review a GitHub Pull request
