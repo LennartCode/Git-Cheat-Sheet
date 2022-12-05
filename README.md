@@ -16,7 +16,7 @@ For more information, please refer to the [Git](https://git-scm.com/doc) and [Gi
 - [The Git workflow](#the-git-workflow)
   - [Branches](#branches)
   - [Creating a feature](#creating-a-feature)
-  - [Review a GitHub Pull request](#review-a-github-pull-request)
+  - [Review a GitHub Pull Request](#review-a-github-pull-request)
 - [Common Problems](#common-problems)
   - [Console shows a lengthy list](#console-shows-a-lengthy-list)
   - [Cannot commit a message](#cannot-commit-a-message)
@@ -183,15 +183,16 @@ git diff HEAD^ <file name>
 
 ### Merge
 
-Attention! Make sure to merge in the correct direction, for example using the GitHub.com UI. A merge always merges another branch that must be specified into the currently loaded one.
+!!Attention!! Make sure to merge in the correct direction, for example using the GitHub.com UI. A merge always merges another branch that must be specified into the currently loaded one.
 
-- In the following, branch F (like in feature) will be merged into branch D (like in development).
+- In the following, a feature branch will be merged into the development branch, such that the development branch will contain the changes from the feature branch after the merge.
+- The feature branch can usually get deleted after the merge has been exetuted successfully.
+- According to the [git-flow](https://nvie.com/posts/a-successful-git-branching-model/) branching model, one should never merge their own features but ask a team member to do so. Also see [creating a feature](#creating-a-feature).
+- To avoid mistakes, consider using a graphical interface such as on GitHub.com.
 
 #### Merge another branch into the current one
 
-Consider using GitHub.com to avoid mistakes.
-
-D <- F
+*Consider using the GitHub.com GUI to avoid mistakes.*
 
 ```PowerShell
 git checkout <name of feature branch>
@@ -236,7 +237,7 @@ Upload commits to a remote repository.
 
 ```PowerShell
 git checkout <branch name to push>
-git push
+git push # You might get prompted with further arguments to push to the remote repository.
 ```
 
 ### Config
@@ -304,7 +305,7 @@ Contains code for the next release. Gets merged into main on release day.
 - feature branches\
 Contain code for a feature that is currently developed. Will be merged into development up on completion.
 
-Each merge requires a pull request, which must be validated and then merged by a different team member.
+Each merge requires a pull request, which must be validated and then merged by a different team member. Those pull requestes are sometimes also called merge requests.
 
 ### Creating a feature
 
@@ -333,7 +334,9 @@ git push
 git branch -d <feature branch name>
 ```
 
-### Review a GitHub Pull request
+### Review a GitHub Pull Request
+
+- Note, in some solutions such as GitLab, pull requests that merge branches are called merge requests.
 
 ```PowerShell
 # Download latest changes
