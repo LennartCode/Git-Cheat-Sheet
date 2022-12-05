@@ -112,26 +112,37 @@ Where X is the amount of commits to delete (do not include the angle brackets).
 git branch
 ```
 
+#### Work on a branch (checkout)
+
+```PowerShell
+git checkout <branch name>
+```
+
 #### Create new branch based on the default branch
 
-The default branch is usually the one, that is worked on, for example 'development'.
+The default branch is usually the one that is worked on, for example 'development'.
 
 ```PowerShell
 git fetch # To get the latest changes
 git branch <new branch name>
 ```
 
-#### Change branch
+- Remember that `fetch` only fetches the current branch (check which one you are on with `git branch`). If you are not on the default branch, check it out first using `git checkout <default branch name>`).
+- It is possible to create branches that are not based on other branches, so called orphans, but it is almost never desirable to have those in an everyday repository, as they cannot be merged into other branches that are not based on them.
+
+#### Create new branch based on any branch
+
+For example when implementing a fix for a non-standard branch.
 
 ```PowerShell
-git checkout <branch name>
+git checkout -b <new branch name> <base branch name>
 ```
 
 #### Delete local branches
 
-For example because they are outdated and have been deleted remotely.
+For example because they are outdated and have been deleted remotely after a successful pull request.
 
-Attention! This will delete changes that have not been pushed!
+!!Attention!! *This will delete changes that have not been pushed to a remote repository!*
 
 ```PowerShell
 git branch -d <branch name>
